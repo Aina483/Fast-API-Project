@@ -40,9 +40,13 @@ def home(request: Request):
 def get_posts():
     return posts
 
-@app.get("/api/posts/{post_id}")
-def get_post(post_id : int):
+@app.get("/api/posts/{post_id}" , name='post')
+def get_post(request : Request, post_id : int):
     for post in posts:
         if post["id"] == post_id:
-            return post
+             return templates.TemplateResponse(
+                    request,
+                    "post.html",
+                    {"post": post},
+                )
     raise HTTPException(status_code = status.HTTP_404_NOT_FOUND, detail= "Post not found")
