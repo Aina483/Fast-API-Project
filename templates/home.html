@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    
-    <title>Fast API Blog</title>
-</head>
-<body>
-    <h1>Home page</h1>
-    {% for user in users%}
+{% extends "base.html" %}
+{% block content %}
+    {% for user in users %}
         <h2>{{user.name}}</h2>
         <p>{{user.occupation}}</p>
+        <p>{{"hello"}}</p>
     {% endfor %}
-</body>
-</html>
+{%endblock content %}
