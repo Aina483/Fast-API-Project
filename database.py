@@ -42,5 +42,5 @@ class Base(DeclarativeBase):
 async def get_db():
     # with act as a context manager - whe  the block finishes , it closes the session automatically.
     # this is dependency function that gives independent sessions to our routes 
-    with AsyncSessionLocal() as session:
+    async with AsyncSessionLocal() as session:
         yield session
